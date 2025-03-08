@@ -67,8 +67,6 @@ public class UserInterface {
                         System.out.println("Anda akan meng-update data" + db.getData().get(index));
                         System.out.println("--------------------------------");
                         System.out.println("INPUT DATA BARU");
-                        System.out.print("NIM             : ");
-                        nim = sc.nextLine();
                         System.out.print("NAMA MAHASISWA  : ");
                         nama = sc.nextLine();
                         System.out.print("ALAMAT          : ");
@@ -80,6 +78,10 @@ public class UserInterface {
                         System.out.print("IPK             : ");
                         ipk = sc.nextDouble();
                         sc.nextLine();
+                        status =db.update(index, db.getData().get(index).getNim(),nama,alamat,semester,sks,ipk);
+                        if (status) {
+                            System.out.println("DATA BERHASIL DIPERBAHARUI");
+                        }
                         System.out.println("-------------------------------------------------");
                     }else{
                         System.err.println("Mahasiswa dengan NIM: " + key + "tidak ada di database");
